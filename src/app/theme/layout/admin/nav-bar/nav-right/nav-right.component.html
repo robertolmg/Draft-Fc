@@ -1,0 +1,123 @@
+<div class="ms-auto">
+  <ul class="list-unstyled">
+    <!--<li>
+      <div class="dropdown pc-h-item" ngbDropdown>
+        <a class="pc-head-link head-link-secondary dropdown-toggle arrow-none me-0" href="javascript:" ngbDropdownToggle>
+          <i class="ti ti-bell"></i>
+        </a>
+        <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
+          <div class="dropdown-header">
+            <a href="javascript:!" class="link-primary float-end text-decoration-underline">Mark as all read</a>
+            <h5>
+              All Notification
+              <span class="badge bg-warning rounded-pill ms-1">01</span>
+            </h5>
+          </div>
+          <ng-scrollbar style="height: calc(100vh - 215px)" visibility="hover">
+            <div class="dropdown-header px-0 text-wrap">
+              <div class="list-group list-group-flush w-100">
+                <div class="list-group-item">
+                  <select class="form-select">
+                    <option value="all">All Notification</option>
+                    <option value="new">New</option>
+                    <option value="unread">Unread</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                @for (item of notification; track item) {
+                  <a class="list-group-item list-group-item-action">
+                    <div class="d-flex">
+                      <div class="flex-shrink-0">
+                        @if (item.iconType) {
+                          <div class="user-avatar {{ item.background }}"><i class="{{ item.icon }}"></i></div>
+                        } @else {
+                          <img src="{{ item.images }}" alt="user-image" class="user-avatar" />
+                        }
+                      </div>
+                      <div class="flex-grow-1 ms-1">
+                        <span class="float-end text-muted">{{ item.time }}</span>
+                        <h5>{{ item.title }}</h5>
+                        <p class="text-muted fs-6">{{ item.text }}</p>
+                        @if (item.badgeType) {
+                          <div class="badge rounded-pill bg-light-danger">Unread</div>
+                          <div class="badge rounded-pill bg-light-warning">New</div>
+                        }
+                        @if (item.mailType) {
+                          <button class="btn btn-sm btn-primary">
+                            Mail
+                            <i class="ti ti-brand-telegram"></i>
+                          </button>
+                        }
+                        @if (item.imagesType) {
+                          <div class="notification-file d-flex p-3 bg-light-secondary rounded">
+                            <i class="ti ti-arrow-bar-to-down"></i>
+                            <h5 class="m-0">demo.jpg</h5>
+                          </div>
+                        }
+                        @if (item.conformation) {
+                          <div class="badge rounded-pill bg-light-success">Confirmation of Account</div>
+                        }
+                      </div>
+                    </div>
+                  </a>
+                }
+              </div>
+            </div>
+          </ng-scrollbar>
+          <div class="dropdown-divider"></div>
+          <div class="text-center py-2">
+            <a href="javascript:!" class="link-primary">Mark as all read</a>
+          </div>
+        </div>
+      </div>
+    </li>-->
+    <li appToggleFullScreen class="pc-h-item">
+      <a
+        href="javascript:"
+        (click)="toggleFullscreen()"
+        title="click to theme view in full-screen"
+        class="full-screen pc-head-link head-link-primary me-0 mobile-menu"
+      >
+        @if (screenFull === true) {
+          <i class="feather icon-maximize"></i>
+        } @else {
+          <i class="feather icon-minimize"></i>
+        }
+      </a>
+    </li>
+    <li>
+      <div class="dropdown pc-h-item header-user-profile" ngbDropdown>
+        <a class="pc-head-link head-link-primary dropdown-toggle arrow-none me-0" href="javascript:" ngbDropdownToggle>
+          <img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avatar" />
+          <span>
+            <i class="ti ti-settings"></i>
+          </span>
+        </a>
+        <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
+          <div class="dropdown-header">
+            <h4>
+              Good Morning,
+              <span class="f-16 f-w-400">John Doe</span>
+            </h4>
+            <p class="text-muted">Project Admin</p>
+            <hr />
+            <ng-scrollbar style="height: calc(100vh - 280px)" visibility="hover">
+              <a [routerLink]="['/user/accountProfile/profileOne']" class="dropdown-item user-options">
+                <i class="ti ti-settings"></i>
+                <span>Account Profile</span>
+              </a>
+              <a [routerLink]="['/user/social-profile']" class="dropdown-item user-options">
+                <i class="ti ti-user"></i>
+                <span>Social Profile</span>
+              </a>
+              <a class="dropdown-item pe-auto user-options" href="javascript:" (click)="logout()">
+                <i class="ti ti-logout"></i>
+                <span>Logout</span>
+              </a>
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
